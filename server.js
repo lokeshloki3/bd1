@@ -1,17 +1,20 @@
 const express = require("express");
-const app =express();
+const app = express();
 
-app.listen(3000, () =>{
-    console.log("Server started at port no. 3000");
-})
+const bodyParser = require("body-parser");
+app.use(bodyParser.json());
 
-app.get("/", (request,response)=>{
-    response.send("Hello");
-})
+app.listen(3000, () => {
+  console.log("Server started at port no. 3000");
+});
 
-app.post("/cars/brand", (request, response) =>{
-    const {name, brand} = request.body;
-    console.log(name);
-    console.log(brand);
-    response.send("Cars submitted successfully");
-})
+app.get("/", (request, response) => {
+  response.send("Hello");
+});
+
+app.post("/cars/brand", (request, response) => {
+  const { name, brand } = request.body;
+  console.log(name);
+  console.log(brand);
+  response.send("Cars submitted successfully");
+});
