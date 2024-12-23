@@ -18,3 +18,12 @@ app.post("/cars/brand", (request, response) => {
   console.log(brand);
   response.send("Cars submitted successfully");
 });
+
+const mongoose = require("mongoose");
+mongoose.connect("mongodb://localhost:27017/myDatabase")
+.then(() => {
+  console.log("Connect to MongoDB");
+})
+.catch((err)=>{
+  console.log("Failed to connect with MongoDB",err);
+})
